@@ -1,0 +1,1 @@
+json.qrcode_url @qrcode_url

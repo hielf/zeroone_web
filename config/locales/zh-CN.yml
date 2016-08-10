@@ -1,0 +1,49 @@
+zh-CN:
+  activerecord:
+    models:
+      admin: 管理员
+      user: 信贷员
+    attributes:
+      admin:
+        id: ID
+        name: 姓名
+        password: 密码
+        password_confirmation: 确认密码
+        created_at: 创建
+        updated_at: 更新
+      user:
+        id: ID
+        openid: OpenID
+        avatar: 头像
+        number: 用户ID
+        name: 姓名
+        cell: 手机
+        email: 电子邮箱
+        id_card: 身份证
+        bank_card: 银行卡
+        alipay: 支付宝
+        created_at: 创建
+        updated_at: 更新
+        channel: 渠道
+        superior_id: 上线
+        total_commission: 佣金总额
+        total_amount: 贷款总额
+  title: ZEROONE_WEB
+  new_admin: 新建管理员
+  admin_list: 管理员列表
+  are_you_sure: 请确认操作
+  operations: 操作
+  edit: 编辑
+  destroy: 删除
+  back: 返回
+  login: 登录
+  logout: 登出
+  please_log_in: 请登录
+  reset_password: 重设密码
+  invalid_email_or_password: 无效的用户名或密码
+  user_list: 信贷员列表
+  new_user: 新建信贷员
+  not_email: 不是有效的电子邮箱
+  show: 显示
+  confirm: 通过
+  deny: 未通过
