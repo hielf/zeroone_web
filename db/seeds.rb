@@ -18,4 +18,3 @@ user = User.create(
   bank_card: "Bank card",
   alipay: "alipay"
   )
-100.times {Feedback.create(user_id: user.id, content: Faker::Lorem.paragraph)}

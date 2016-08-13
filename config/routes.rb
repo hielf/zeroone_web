@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   namespace :admin do
     get     'login'   => 'sessions#new'
     post    'login'   => 'sessions#create'
     delete  'logout'  => 'sessions#destroy'
+
+    get     'user_login'   => 'usersessions#new'
+    post    'user_login'   => 'usersessions#create'
+    delete  'user_logout'  => 'usersessions#destroy'
+
     resources :admins
     resources :users do
       get :export, on: :collection
@@ -13,7 +19,7 @@ Rails.application.routes.draw do
       get :confirm, on: :member
       get :deny, on: :member
     end
-    root 'welcome#index'
+    root 'manage#index'
   end
 
   namespace :api do
@@ -30,7 +36,7 @@ Rails.application.routes.draw do
     end
     resources :feedbacks, only: :create
     resources :leaders, only: [:index, :create], defaults: {format: :json}
-    get 'get_serial_number' => 'codes#index' 
+    get 'get_serial_number' => 'codes#index'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

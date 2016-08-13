@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   validates :cell, length: { minimum: 11 }, allow_blank: true
   validates :email, presence: true, email: true, allow_blank: true
 
-  has_many :feedbacks, dependent: :destroy
-  has_many :leaders, dependent: :destroy
   has_many :records, dependent: :destroy
   belongs_to :superior, class_name: 'User'
   has_many :subordinates, class_name: 'User', foreign_key: "superior_id"

@@ -41,8 +41,8 @@ zh-CN:
   please_log_in: 请登录
   reset_password: 重设密码
   invalid_email_or_password: 无效的用户名或密码
-  user_list: 信贷员列表
-  new_user: 新建信贷员
+  user_list: 用户列表
+  new_user: 新用户注册
   not_email: 不是有效的电子邮箱
   show: 显示
   confirm: 通过
