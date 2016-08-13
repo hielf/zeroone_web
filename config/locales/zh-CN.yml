@@ -2,7 +2,8 @@ zh-CN:
   activerecord:
     models:
       admin: 管理员
-      user: 信贷员
+      user: 用户
+      product: 产品
     attributes:
       admin:
         id: ID
@@ -18,7 +19,9 @@ zh-CN:
         number: 用户ID
         name: 姓名
         cell: 手机
-        email: 电子邮箱
+        email: 邮箱
+        password: 密码
+        password_confirmation: 确认密码
         id_card: 身份证
         bank_card: 银行卡
         alipay: 支付宝
@@ -28,9 +31,16 @@ zh-CN:
         superior_id: 上线
         total_commission: 佣金总额
         total_amount: 贷款总额
-  title: ZEROONE_WEB
+      product:
+        id: ID
+        product_name: 名称
+        created_at: 创建
+        updated_at: 更新
+  title: 零加壹
   new_admin: 新建管理员
   admin_list: 管理员列表
+  new_product: 添加产品
+  product_list: 产品列表
   are_you_sure: 请确认操作
   operations: 操作
   edit: 编辑

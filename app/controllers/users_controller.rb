@@ -1,6 +1,8 @@
-class Admin::UsersController < Admin::BaseController
+class UsersController < ApplicationController
+  skip_before_action :logged_in_admin, only: [:new, :create]
+
   def index
-    @users = User.page params[:page]
+    @users = User.all
   end
 
   def new
@@ -10,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to admin_users_url
+      redirect_to root_url
     else
       render 'new'
     end
@@ -23,7 +25,7 @@ class Admin::UsersController < Admin::BaseController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_users_url
+      redirect_to user_users_url
     else
       render 'edit'
     end
@@ -31,7 +33,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     User.find(params[:id]).destroy
-    redirect_to admin_users_url
+    redirect_to user_users_url
   end
 
   def export
@@ -46,6 +48,7 @@ class Admin::UsersController < Admin::BaseController
     def user_params
       params.require(:user).permit(
         :openid, :avatar, :name, :email,
-        :cell, :number, :channel)
+        :cell, :number, :channel,
+        :password, :password_confirmation)
     end
 end

@@ -1,24 +1,20 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get     'user_login'   => 'usersessions#new'
+  post    'user_login'   => 'usersessions#create'
+  delete  'user_logout'  => 'usersessions#destroy'
+
+  resources :users do
+    get :export, on: :collection
+  end
+
+  resources :products
+
   namespace :admin do
     get     'login'   => 'sessions#new'
     post    'login'   => 'sessions#create'
     delete  'logout'  => 'sessions#destroy'
-
-    get     'user_login'   => 'usersessions#new'
-    post    'user_login'   => 'usersessions#create'
-    delete  'user_logout'  => 'usersessions#destroy'
-
     resources :admins
-    resources :users do
-      get :export, on: :collection
-    end
-    resources :feedbacks, only: [:index, :destroy, :show]
-    resources :leaders, only: [:index, :edit, :update] do
-      get :export, on: :collection
-      get :confirm, on: :member
-      get :deny, on: :member
-    end
     root 'manage#index'
   end
 

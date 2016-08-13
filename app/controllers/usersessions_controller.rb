@@ -5,18 +5,18 @@ class UsersessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name])
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by(email: params[:usersession][:email])
+    if user && user.authenticate(params[:usersession][:password])
       user_log_in user
-      redirect_to user_root_url
+      redirect_to products_url
     else
       flash.now[:danger] = t(:invalid_email_or_password)
-      render 'new'
+      redirect_to root_url
     end
   end
 
   def destroy
     user_logout if user_logged_in?
-    redirect_to user_root_url
+    redirect_to root_url
   end
 end

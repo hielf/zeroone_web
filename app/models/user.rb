@@ -6,29 +6,28 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
-  validates :openid, presence: true, uniqueness: true
+  has_secure_password
+  # validates :openid, presence: true, uniqueness: true
   # validates :number, length: { is: 6 } # validation is called before before_create ...
   validates :cell, length: { minimum: 11 }, allow_blank: true
   validates :email, presence: true, email: true, allow_blank: true
 
   has_many :records, dependent: :destroy
-  belongs_to :superior, class_name: 'User'
-  has_many :subordinates, class_name: 'User', foreign_key: "superior_id"
 
   before_create :generate_number
   after_create :generate_qrcode
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :qrcode, QrcodeUploader
-  CHANNELS = ["001", "002", "003", "004", "005", "006"]
-
-  def total_commission
-    commission + second_commission + third_commission
-  end
-
-  def total_amount
-    leaders.sum(:amount)
-  end
+  # CHANNELS = ["001", "002", "003", "004", "005", "006"]
+  #
+  # def total_commission
+  #   commission + second_commission + third_commission
+  # end
+  #
+  # def total_amount
+  #   leaders.sum(:amount)
+  # end
 
   private
     def generate_number
