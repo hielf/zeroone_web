@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :logged_in?
   def index
     @products = Product.all
   end
@@ -35,8 +35,23 @@ class ProductsController < ApplicationController
     redirect_to products_url
   end
 
+  def confirm
+    Product.find(params[:id]).confirm
+    redirect_to products_url
+  end
+
+  def deny
+    Product.find(params[:id]).deny
+    redirect_to products_url
+  end
+
+  def disable
+    Product.find(params[:id]).disable
+    redirect_to products_url
+  end
+
   private
     def product_params
-      params.require(:product).permit(:product_name)
+      params.require(:product).permit(:product_name, :prize, :image, :desc, :url, :status)
     end
 end

@@ -2,7 +2,7 @@
 lock '3.5.0'
 
 set :application, 'zeroone_web'
-set :repo_url, 'git@github.com:dreamlx/zeroone_web.git'
+set :repo_url, 'git@github.com:hielf/zeroone_web.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

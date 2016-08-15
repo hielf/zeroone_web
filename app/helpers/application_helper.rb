@@ -95,4 +95,8 @@ module ApplicationHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def logged_in?
+    !current_admin.nil? || !current_user.nil?
+  end
 end

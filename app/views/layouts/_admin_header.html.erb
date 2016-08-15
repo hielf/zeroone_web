@@ -14,13 +14,19 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if admin_logged_in? %>
+        <ul class="nav navbar-nav">
+          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'records' %>"><%= link_to Record.model_name.human, records_path %></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= 'active' if params[:controller] == 'admin/admins' %>"><%= link_to Admin.model_name.human, admin_admins_path %></li>
           <li><%= link_to t('logout'), admin_logout_path, method: :delete %></li>
         </ul>
       <% elsif user_logged_in? %>
         <ul class="nav navbar-nav">
-          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'records' %>"><%= link_to Record.model_name.human, records_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to t('logout'), user_logout_path, method: :delete %></li>

@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     end
 
     def generate_qrcode
-      qr = RQRCode::QRCode.new("http://pingan.zeroone_web.com/form?sub=006&number=#{self.number}")
+      qr = RQRCode::QRCode.new("#{self.number}")
       update(qrcode: open(qr.as_png.save("tmp/cache/#{self.number}.png")))
     end
 end

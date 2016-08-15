@@ -34,6 +34,11 @@ zh-CN:
       product:
         id: ID
         product_name: 名称
+        prize: 价格
+        image: 图片
+        desc: 说明
+        url: 链接
+        status: 状态
         created_at: 创建
         updated_at: 更新
   title: 零加壹
@@ -47,7 +52,7 @@ zh-CN:
   destroy: 删除
   back: 返回
   login: 登录
-  logout: 登出
+  logout: 退出
   please_log_in: 请登录
   reset_password: 重设密码
   invalid_email_or_password: 无效的用户名或密码
@@ -56,4 +61,5 @@ zh-CN:
   not_email: 不是有效的电子邮箱
   show: 显示
   confirm: 通过
-  deny: 未通过
+  deny: 否决
+  disable: 关闭

@@ -1,5 +1,5 @@
 class Admin::SessionsController < Admin::BaseController
-  skip_before_action :logged_in_admin
+  skip_before_action :logged_in
   def new
     @admin = Admin.new
   end

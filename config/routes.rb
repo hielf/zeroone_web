@@ -8,7 +8,13 @@ Rails.application.routes.draw do
     get :export, on: :collection
   end
 
-  resources :products
+  resources :products do
+    get :confirm, on: :member
+    get :deny, on: :member
+    get :disable, on: :member
+  end
+
+  resources :records 
 
   namespace :admin do
     get     'login'   => 'sessions#new'
