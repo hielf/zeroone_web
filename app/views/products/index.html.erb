@@ -2,14 +2,14 @@
   <h3><%= t(:product_list) %></h3>
 </div>
 <div class="col-md-2">
-  <%= link_to t(:new_product), new_product_path, class: "btn btn-danger" %>
+  <%= link_to t(:new_product), new_product_path, class: "btn btn-danger" if current_user.nil? %>
 </div>
 <div class="col-md-12">
   <table class="table">
     <thead>
       <tr>
         <th><%= Product.human_attribute_name(:id) %></th>
-        <th><%= Product.human_attribute_name(:product_name) %></th>
+        <th><%= Product.human_attribute_name(:name) %></th>
         <th><%= Product.human_attribute_name(:desc) %></th>
         <th><%= Product.human_attribute_name(:url) %></th>
         <th><%= Product.human_attribute_name(:status) %></th>

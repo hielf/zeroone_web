@@ -1,0 +1,14 @@
+<tr>
+  <td><%= record.id %></td>
+  <td><%= User.find(record.user_id).name %></td>
+  <td><%= Product.find(record.product_id).name %></td>
+  <td><%= record.sell_date %></td>
+  <td><%= record.customer_name %></td>
+  <td><%= record.customer_cell %></td>
+  <td><%= record.qty %></td>
+  <td><%= record.total_prize %></td>
+  <td><%= record.status %></td>
+  <td><%= link_to t(:destroy), record_path(record), method: :delete, data: {confirm: t(:are_you_sure)} %></td>
+  <td><%= link_to t(:confirm), confirm_record_path(record) if current_user.nil? %></td>
+  <td><%= link_to t(:deny), deny_record_path(record) if current_user.nil? %></td>
+</tr>

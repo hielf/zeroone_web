@@ -9,7 +9,7 @@ class UsersessionsController < ApplicationController
     user = User.find_by(email: params[:usersession][:email])
     if user && user.authenticate(params[:usersession][:password])
       user_log_in user
-      redirect_to products_url
+      redirect_to records_url
     else
       flash.now[:danger] = t(:invalid_email_or_password)
       redirect_to root_url

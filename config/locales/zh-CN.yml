@@ -4,6 +4,7 @@ zh-CN:
       admin: 管理员
       user: 用户
       product: 产品
+      record: 记录
     attributes:
       admin:
         id: ID
@@ -33,7 +34,7 @@ zh-CN:
         total_amount: 贷款总额
       product:
         id: ID
-        product_name: 名称
+        name: 名称
         prize: 价格
         image: 图片
         desc: 说明
@@ -41,11 +42,25 @@ zh-CN:
         status: 状态
         created_at: 创建
         updated_at: 更新
+      record:
+        id: ID
+        user_id: 用户
+        product_id: 产品
+        sell_date: 销售日期
+        customer_name: 客户姓名
+        customer_cell: 客户手机
+        qty: 销售数量
+        total_prize: 总价
+        status: 状态
+        created_at: 创建
+        updated_at: 更新
   title: 零加壹
   new_admin: 新建管理员
   admin_list: 管理员列表
   new_product: 添加产品
+  new_record: 添加记录
   product_list: 产品列表
+  record_list: 销售记录列表
   are_you_sure: 请确认操作
   operations: 操作
   edit: 编辑

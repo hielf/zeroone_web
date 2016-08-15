@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    redirect_to user_users_url
+    redirect_to users_url
   end
 
   def export

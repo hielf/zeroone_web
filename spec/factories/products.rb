@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :product do
-    product_name "MyString"
+    name "MyString"
     image "MyString"
     desc "MyString"
     url "MyString"

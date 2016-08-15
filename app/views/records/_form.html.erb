@@ -1,0 +1,20 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+       <h4 class="panel-title text-center"><%=Record.model_name.human%></h4>
+    </div>
+  <%= simple_form_for(@record) do |f| %>
+  <div class="panel-body">
+    <%= f.input :product_id, collection: Product.all, :include_blank => false %>
+    <%= f.input :sell_date %>
+    <%= f.input :customer_name %>
+    <%= f.input :customer_cell %>
+    <%= f.input :qty %>
+    <%= f.input :total_prize %>
+  </div>
+  <div class="panel-footer text-center">
+    <%= f.button :submit, class: "btn btn-danger" %>
+    <%= link_to t(:back), :back, class: "btn btn-default" %>
+  </div>
+  <% end %>
+</div>

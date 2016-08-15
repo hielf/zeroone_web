@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     get :disable, on: :member
   end
 
-  resources :records 
+  resources :records do
+    get :confirm, on: :member
+    get :deny, on: :member
+  end
 
   namespace :admin do
     get     'login'   => 'sessions#new'
