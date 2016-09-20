@@ -7,11 +7,14 @@ end
 
 class User < ActiveRecord::Base
   has_secure_password
-  # validates :openid, presence: true, uniqueness: true
-  # validates :number, length: { is: 6 } # validation is called before before_create ...
-  validates :cell, length: { minimum: 11 }, allow_blank: true
-  validates :email, presence: true, email: true, allow_blank: true
+  before_create :generate_token
+  before_create :generate_number
 
+  validates :cell, length: { minimum: 11 },presence: true, uniqueness: true
+  # validates :email, presence: true, email: true, allow_blank: true
+
+  belongs_to :superior, class_name: 'User'
+  has_many :subordinates, class_name: 'User', foreign_key: "superior_id"
   has_many :records, dependent: :destroy
 
   before_create :generate_number
@@ -19,15 +22,29 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :qrcode, QrcodeUploader
-  # CHANNELS = ["001", "002", "003", "004", "005", "006"]
-  #
-  # def total_commission
-  #   commission + second_commission + third_commission
-  # end
-  #
-  # def total_amount
-  #   leaders.sum(:amount)
-  # end
+
+  def User.send_code(cell, code)
+
+    # the cell must exist and more than 11 digits
+    return false unless cell && cell.to_s.length >= 11
+
+    msg         = code.to_s
+    @var        = {}
+    @var["code"] = msg
+    uri         = URI.parse("https://api.submail.cn/message/xsend.json")
+    username    = Rails.application.secrets.sms_appid
+    password    = Rails.application.secrets.sms_signature
+    project     = Rails.application.secrets.sms_project
+    res         = Net::HTTP.post_form(uri, appid: username, to: cell, project: project, signature: password, vars: @var.to_json)
+
+    status      = JSON.parse(res.body)["status"]
+    return ((status == "success") ? true : false)
+  end
+
+  def reset_token
+    reset_auth_token!
+  end
+
 
   private
     def generate_number
@@ -40,5 +57,17 @@ class User < ActiveRecord::Base
     def generate_qrcode
       qr = RQRCode::QRCode.new("#{self.number}")
       update(qrcode: open(qr.as_png.save("tmp/cache/#{self.number}.png")))
+    end
+
+    def generate_token
+      loop do
+        self.token = SecureRandom.base64(64)
+        break if !User.find_by(token: token)
+      end
+    end
+
+    def reset_auth_token!
+      generate_token
+      save
     end
 end

@@ -6,7 +6,7 @@ class Api::BaseController < ApplicationController
   before_action :destroy_session
   before_action :authenticate_user!
   attr_accessor :current_user
-  
+
   def api_error(opts = {})
     render nothing: true, status: opts[:status]
   end
@@ -16,17 +16,19 @@ class Api::BaseController < ApplicationController
   end
 
   private
-  def authenticate_user!
-      openid, options = ActionController::HttpAuthentication::Token.token_and_options(request)
-      return unauthenticated! if openid.blank?
-      user = User.find_by(openid: openid)
-      if user
+    def authenticate_user!
+      token, options = ActionController::HttpAuthentication::Token.token_and_options(request)
+
+      cell = options.blank? ? nil : options[:cell]
+      return unauthenticated! if cell.blank?
+      user = User.find_by(cell: cell)
+      if user && ActiveSupport::SecurityUtils.secure_compare(user.token, token)
         self.current_user = user
       else
-        self.current_user = User.create!(openid: openid)
+        return unauthenticated!
       end
-  end
-    
+    end
+
     def unauthenticated!
       api_error(status: 401)
     end

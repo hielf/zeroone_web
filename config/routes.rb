@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   post    'user_login'   => 'usersessions#create'
   delete  'user_logout'  => 'usersessions#destroy'
 
+  namespace :api, defaults: {format: :json} do
+    post 'signup' => 'users#create'
+    post 'login' => 'sessions#create'
+    post 'send_code' => 'users#send_code'
+    resources :users do
+      patch :reset_password, on: :collection
+      get :center, on: :collection
+    end
+  end
+
   resources :users do
     get :export, on: :collection
   end

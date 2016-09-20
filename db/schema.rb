@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815194257) do
+ActiveRecord::Schema.define(version: 20160920192841) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160815194257) do
     t.decimal  "balance",                       precision: 12, scale: 2, default: 0.0
     t.string   "channel",           limit: 255,                          default: "001"
     t.string   "password_digest",   limit: 255
+    t.string   "token",             limit: 255
   end
 
 end
