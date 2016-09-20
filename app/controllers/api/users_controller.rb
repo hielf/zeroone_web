@@ -8,7 +8,7 @@ class Api::UsersController < Api::BaseController
     return render json: {message: "验证码错误"} if cell_code.nil?
 
     user = User.new(user_params)
-    @superior = User.find_by(number: params[:user][:invite_code])
+    @superior = User.find_by(cell: params[:user][:invite_cell)
     user.superior = @superior if @superior
     if user.save
       render json: {cell: user.cell, token: user.token}, status: 201

@@ -1,4 +1,4 @@
-## send code
+## send code 发送短信验证码
 ```
 curl -X POST -d "cell=xxxxxx" http://localhost/api/send_code
 200: ok
@@ -6,12 +6,12 @@ curl -X POST -d "cell=xxxxxx" http://localhost/api/send_code
 ```
 ## signup
 ```
-curl -X POST -d "user[cell]=xx&user[code]=xx&user[password]=xxx&user[openid]=xxxxxxxx&user[invite_code]=xxxx" http://localhost/api/signup
+curl -X POST -d "user[cell]=xx&user[password]=xx&user[password]=xxx&user[invite_cell]=xxxx" http://localhost/api/signup
 201 ok
 ```
 ## login
 ```
-curl -X POST -d "cell=xxx&code=1111&openid=xxxxxx" http://localhost/api/login
+curl -X POST -d "cell=xxx&password=1111" http://localhost/api/login
 200: ok
 401: ng
 ```
