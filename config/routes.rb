@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       patch :reset_password, on: :collection
       get :center, on: :collection
     end
+    resources :products do
+      get :recommend_list, on: :collection
+    end
   end
 
   resources :users do

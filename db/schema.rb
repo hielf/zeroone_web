@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920192841) do
+ActiveRecord::Schema.define(version: 20160926061227) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "cell_codes", force: :cascade do |t|
+    t.string   "cell",       limit: 255
+    t.string   "code",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "products", force: :cascade do |t|
@@ -29,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160920192841) do
     t.string   "status",     limit: 255
     t.datetime "created_at",                                                    null: false
     t.datetime "updated_at",                                                    null: false
+    t.boolean  "recommend"
   end
 
   create_table "records", force: :cascade do |t|
