@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def Account.binding(user, bank_code, card_no)
+  def Product.test(user, bank_code, card_no)
       merchant_private_key = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANMW2O9hxB3zByvs4Adn1yJnCA12mjengluzo5/2dRVCJMI7ozSRdcDm8oqNfRqK191/XBZC5guM7D0120zXS2mmkIGMcKFNfyQchHhZvMbH5bHRe5/EN5n4KOAoIBTDFGNEyi7ztHZ+ZhBFZYUhMNrwP8Wc7TX3KD3jUrlhY8ydAgMBAAECgYBuWhJcyppxIbzNDM9tb667MGu4RhmHIM34TKgslvZMf8ChvfWrJKQPjWycXC1bs9v30n38sUp8HVbfBQm5WQ/1nyHZM+A2M0Zy2ebAXdpt8k4j5H+6o6DY+u8S/TIRXSfR7ov7FFwGJZQnG1cBrN69rVlSkug+KtWbc+yRtALJ4QJBAPQvZQc40JxpBEMeK4h6ov7UAOIqo5H+KReQS4QQMhsJqVWhUgvQZ0hvfApWBmSek0ByHQsfbypzODcTnfqriOUCQQDdTYJ8b23a8o52frllkpmwXah07Uyo+V0QJdNOlNLu/NezPAJUruRYunnnKdlQUhdMC0I3NOAZdEoki+CwYhFZAkBbpmZO/Z4e9rOo1WwVf6Ip7zydps9Z/oFB3ODbIpEL4OZzw2beFEyPvXhbEMq5fWNbbvlDsXqx/ij9UxmaekOZAkEAmo0MCO0k8lidJ6H+xjHoxWPTRr2G4SctWB6igOmsmhzYYyMQmaV+cXzhr4/pZY+/F2txde6mZwBw2y8Y3vXOGQJBAIfGN425cnS+259Nlq50WgX8PbtKCimqUZIxFIqLjgbnFhfW+RzeiUc8I/EnOs3cgJ50ekf7Ren/ZAjYN28Boj8="
       service_type         = "sign_query"
       merchant_code        = "2060220355"
