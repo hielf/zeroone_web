@@ -5,6 +5,6 @@ json.products do
     json.prize            product.prize
     json.image            "http://121.42.36.163" + product.image.url
     json.desc             product.desc
-    json.url              product.promoturl(current_user)
+    json.url              product.promoturl(@current_user)
   end
 end
