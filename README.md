@@ -36,6 +36,6 @@ curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d 
 ```
 ### 产品详细信息
 ```
-curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/product/#{id=1}
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/products/#{id=1}
 产品信息
 ```

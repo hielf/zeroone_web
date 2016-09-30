@@ -43,22 +43,22 @@ Rails.application.routes.draw do
     root 'manage#index'
   end
 
-  namespace :api do
-    resources :users, only: [:index], defaults: {format: :json} do
-      get :get_info, on: :collection, defaults: {format: :json}
-      get :get_qrcode, on: :collection, defaults: {format: :json}
-      get :get_invite_code, on: :collection, defaults: {format: :json}
-      get :set_superior, on: :collection, defaults: {format: :json}
-      patch :update_profile, on: :collection, defaults: {format: :json}
-      get :get_balance, on: :collection, defaults: {format: :json}
-      get :commissions, on: :collection, defaults: {format: :json}
-      get :subordinates, on: :collection, defaults: {format: :json}
-      get :wx_get_jsapi_ticket, on: :collection, defaults: {format: :json}
-    end
-    resources :feedbacks, only: :create
-    resources :leaders, only: [:index, :create], defaults: {format: :json}
-    get 'get_serial_number' => 'codes#index'
-  end
+  # namespace :api do
+  #   resources :users, only: [:index], defaults: {format: :json} do
+  #     get :get_info, on: :collection, defaults: {format: :json}
+  #     get :get_qrcode, on: :collection, defaults: {format: :json}
+  #     get :get_invite_code, on: :collection, defaults: {format: :json}
+  #     get :set_superior, on: :collection, defaults: {format: :json}
+  #     patch :update_profile, on: :collection, defaults: {format: :json}
+  #     get :get_balance, on: :collection, defaults: {format: :json}
+  #     get :commissions, on: :collection, defaults: {format: :json}
+  #     get :subordinates, on: :collection, defaults: {format: :json}
+  #     get :wx_get_jsapi_ticket, on: :collection, defaults: {format: :json}
+  #   end
+  #   resources :feedbacks, only: :create
+  #   resources :leaders, only: [:index, :create], defaults: {format: :json}
+  #   get 'get_serial_number' => 'codes#index'
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
