@@ -22,19 +22,21 @@ class Product < ActiveRecord::Base
 
   def promoturl(user)
     payChannel           = "alipay"
-    returnUrl            = "http://www.tmall.com"
-    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}}}"
+    returnUrl            = "http://www.zhongan.com"
+    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}}}"  # "{\"extraInfo\":{\"user_id\":#{user.id}}}"
+    # json                 = {extraInfo:{user_id: user.id}}
     # json                 = JSON::generate(data)
 
     key = "open20160501"
     enc = RC4.new(key)
     encrypted = enc.encrypt(json)
+    bizContent = encrypted.unpack('h*')[0]
 
-    self.url + "&" + "payChannel=" + payChannel + "&" + "returnUrl=" + returnUrl + "&" + "bizContent=" + encrypted
+    self.url + "&" + "payChannel=" + payChannel + "&" + "returnUrl=" + returnUrl + "&" + "bizContent=" + bizContent
   end
 
   # def Product.notify(user, bank_code, card_no)
-  #    
+  #
   #     key = "open20160501"
   #     enc = RC4.new(key)
   #     encrypted = enc.encrypt(data)

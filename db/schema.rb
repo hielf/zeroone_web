@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926061227) do
+ActiveRecord::Schema.define(version: 20160930054527) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20160926061227) do
     t.datetime "created_at",                                                    null: false
     t.datetime "updated_at",                                                    null: false
     t.boolean  "recommend"
+    t.decimal  "ratio",                  precision: 12, scale: 2, default: 0.0
+    t.decimal  "bonus",                  precision: 12, scale: 2, default: 0.0
   end
 
   create_table "records", force: :cascade do |t|
