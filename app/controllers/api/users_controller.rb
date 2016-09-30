@@ -48,6 +48,6 @@ class Api::UsersController < Api::BaseController
 
   private
     def user_params
-      params.require(:user).permit(:cell, :password, :openid, :number)
+      params.require(:user).permit(:cell, :password, :openid, :number, :name)
     end
 end

@@ -6,7 +6,7 @@ curl -X POST -d "cell=xxxxxx" http://localhost/api/send_code
 ```
 ## signup
 ```
-curl -X POST -d "user[cell]=xx&user[password]=xx&user[code]=xx&user[invite_cell]=xxxx" http://localhost/api/signup
+curl -X POST -d "user[cell]=xx&user[password]=xx&user[code]=xx&user[invite_cell]=xxxx[name]=xxx" http://localhost/api/signup
 201 ok
 ```
 ## login

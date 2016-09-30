@@ -203,6 +203,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby-rc4 (0.1.5)
     rubyzip (1.0.0)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -282,6 +283,7 @@ DEPENDENCIES
   ransack
   rqrcode
   rspec-rails
+  ruby-rc4
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form
