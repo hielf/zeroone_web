@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
   def promoturl(user)
     payChannel           = "wxpay"
     returnUrl            = "http://www.zhongan.com"
-    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}}}"  # "{\"extraInfo\":{\"user_id\":#{user.id}}}"
+    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}}}" if user # "{\"extraInfo\":{\"user_id\":#{user.id}}}"
     # json                 = {extraInfo:{user_id: user.id}}
     # json                 = JSON::generate(data)
 
