@@ -34,10 +34,7 @@ class Product < ActiveRecord::Base
   end
 
   # def Product.notify(user, bank_code, card_no)
-  #     payChannel           = "alipay"
-  #     returnUrl            = "http://www.tmall.com"
-  #     data                 = {extra_info: {user_id: current_user.id}}.to_json
-  #
+  #    
   #     key = "open20160501"
   #     enc = RC4.new(key)
   #     encrypted = enc.encrypt(data)
