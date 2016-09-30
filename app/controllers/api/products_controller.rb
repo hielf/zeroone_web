@@ -1,5 +1,5 @@
 class Api::ProductsController < Api::BaseController
-  # skip_before_action :authenticate_user!, only: [:create, :send_code]
+  skip_before_action :authenticate_user!, only: [:index, :send_code]
   def index
     @products = Product.where(status: "已审核")
   end
