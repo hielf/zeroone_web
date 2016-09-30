@@ -11,8 +11,4 @@ class Api::ProductsController < Api::BaseController
   def recommend_list
     @products = Product.where(status: "已审核", recommend: true)
   end
-
-  def notify
-
-  end
 end
