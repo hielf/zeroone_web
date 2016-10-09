@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
-  # get     'user_login'   => 'usersessions#new'
-  # post    'user_login'   => 'usersessions#create'
-  # delete  'user_logout'  => 'usersessions#destroy'
+  root 'welcome#index'
+  get     'user_login'   => 'usersessions#new'
+  post    'user_login'   => 'usersessions#create'
+  delete  'user_logout'  => 'usersessions#destroy'
 
   namespace :api, defaults: {format: :json} do
     post 'signup' => 'users#create'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     post    'login'   => 'sessions#create'
     delete  'logout'  => 'sessions#destroy'
     resources :admins
-    root 'manage#index'
+    # root 'manage#index'
   end
 
   # namespace :api do

@@ -4,7 +4,7 @@ zh-CN:
       admin: 管理员
       user: 用户
       product: 产品
-      record: 记录
+      record: 销售记录
     attributes:
       admin:
         id: ID
@@ -37,9 +37,12 @@ zh-CN:
         name: 名称
         prize: 价格
         image: 图片
+        ratio: 提成比例
+        bonus: 奖励金额
         desc: 说明
         url: 链接
         status: 状态
+        recommend: 推荐
         created_at: 创建
         updated_at: 更新
       record:

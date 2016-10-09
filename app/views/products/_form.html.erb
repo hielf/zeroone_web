@@ -8,8 +8,11 @@
     <%= f.input :name %>
     <%= f.input :image %>
     <%= f.input :prize %>
+    <%= f.input :ratio %>
+    <%= f.input :bonus %>
     <%= f.input :desc %>
     <%= f.input :url %>
+    <%= f.input :recommend %>
     <%= f.input :status, collection: Product::PRODUCT_STATUS, :include_blank => false %>
   </div>
   <div class="panel-footer text-center">
