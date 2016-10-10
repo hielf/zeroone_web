@@ -31,7 +31,7 @@ class Product < ActiveRecord::Base
     key = "open20160501"
     enc = RC4.new(key)
     encrypted = enc.encrypt(json)
-    bizContent = encrypted.unpack('h*')[0]
+    bizContent = encrypted.unpack('H*')[0]
 
     self.url + "&" + "payChannel=" + payChannel + "&" + "returnUrl=" + returnUrl + "&" + "bizContent=" + bizContent
   end
