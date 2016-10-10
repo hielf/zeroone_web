@@ -41,6 +41,7 @@ zh-CN:
         bonus: 奖励金额
         desc: 说明
         url: 链接
+        promoturl: 推广链接
         status: 状态
         recommend: 推荐
         created_at: 创建
