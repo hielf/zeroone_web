@@ -2,8 +2,8 @@
   <td><%= product.id %></td>
   <td><%= product.name %></td>
   <td><%= product.desc %></td>
-  <td><%= link_to product.url, product.url %></td>
-  <td><%= link_to product.promoturl(current_user), product.promoturl(current_user) %></td>
+  <td><%= link_to "点击", product.url %></td>
+  <td><%= link_to "点击", product.promoturl(User.last) %></td>
   <td><%= product.status %></td>
   <td><%= link_to t(:edit), edit_product_path(product) %></td>
   <td><%= link_to t(:confirm), confirm_product_path(product) %></td>
