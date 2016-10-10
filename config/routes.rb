@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get :recommend_list, on: :collection
     end
     resources :records do
-      post :notify
+      post :notify, on: :collection
     end
   end
 
