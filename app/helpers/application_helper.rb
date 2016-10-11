@@ -99,4 +99,18 @@ module ApplicationHelper
   def logged_in?
     !current_admin.nil? || !current_user.nil?
   end
+
+  def decrypt_msg(key, message)
+    bytes_array = Base64::decode64 message
+    input_length = bytes_array.length
+
+    decryt_str, offset, i = "", 0, 0
+    begin
+      decryt_bytes = bytes_array[offset, 128]
+      decryt_str << key.private_decrypt(decryt_bytes) #解密
+      offset = (i += 1) * 128
+    end while input_length - offset > 0
+
+    decryt_str
+  end
 end
