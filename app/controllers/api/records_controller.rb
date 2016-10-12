@@ -1,5 +1,10 @@
 class Api::RecordsController < Api::BaseController
   skip_before_action :authenticate_user!, only: [:notify]
+
+  def index
+    @records = current_user.records
+  end
+
   def notify
     Rails.logger.warn "notify #{Time.now}, sign: #{params[:sign]}, other #{params};"
     # params = {"sign"=>"k5h1TtKzE/he3u2OM3bqI8ZHueW0hYLOT3VjvjcR4bZMmVy+4B6UcvO+uaZxbwTbJ9ui30vMuvPMLePY2036RJEbTnIvETlIE0w0YDs7mRj8XaZSnzvfUvhHU8baPvs1URrPcKENsYmflCcsdPG/J6jsA7Yp/dcAqROkg96+GQ0=", "timestamp"=>"20161012034610010", "bizContent"=>"PXcdop/YlCrNX8ePQss0+XvFPk5z/ToxDBS96rHx+pEozbe2jDqQgnGPDIyHPNenWFlwbMPM8ZFgZfgqf5TRDFYOhxKJGmbre/RJ8el/Np3EGpHpI3NUYSwuYuW78cDLd7JWRHbeEB4AjGytICx2YGYy/fl3XADaerObEXpNQloJodBanbaBGr8XgKRh7HdVjUAVUIxL0pq2ZrM5XMZUIW0AAWJpKiV9JHE0p3zcgKQnYr+HmemidDbnQOKFQMaiVOh+/puSe+9xR05gSiMY4vWQaj+HeWbRXfmgge/IrevaqcDIPnhmLIgQsMgXI0oFdg3uLswIm7LUZwL3DVsSnpq6UzIUgxJTn0FvDdsB7TsGJ0Mx/ftlYBXxFF1UOTuwGTLyc8b6kqFlJRrdVLN75BVguIKg4TzR2wsQq/8qsPKcJ2/H2vGwef9EI37NO3l0pNXt7yTfA5eanE5aP8x90cKQJb1zET5EcQkkoPeuGu10XePuvW9E/C/iqOZMdoaJ", "signType"=>"RSA", "charset"=>"UTF-8", "format"=>:json, "serviceName"=>"promotePolicyNotify", "controller"=>"api/records", "action"=>"notify"}
@@ -50,6 +55,7 @@ class Api::RecordsController < Api::BaseController
                          policy_no: json["policyNo"])
 
     if @record.save
+      @record.confirm
       render json: {result: "ok"}, status: 201
     end
   end
