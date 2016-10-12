@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
     payChannel           = "wxpay"
     returnUrl            = ENV['return_url']
     json                 = ""
-    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}, {\"product_id\":#{self.id}}}" if user
+    json                 = "{\"extraInfo\":{\"user_id\":#{user.id}, \"product_id\":#{self.id}}}" if user
     # json                 = {extraInfo:{user_id: user.id}}
     # json                 = JSON::generate(data)
 
