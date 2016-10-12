@@ -17,7 +17,7 @@ class Api::RecordsController < Api::BaseController
 
     # We have received the following data
     message = params_hash["bizContent"]
-    decrypt_message = decrypt_msg(private_key, message)
+    decrypt_message = decrypt_msg(private_key, message) rescue api_error(status: 401)
 
     json = JSON.parse decrypt_message
 
@@ -26,7 +26,7 @@ class Api::RecordsController < Api::BaseController
 
     key = ENV['zhongan_key']
     dec = RC4.new(key)
-    decrypted = dec.decrypt(d)
+    decrypted = dec.decrypt(d) rescue api_error(status: 401)
 
     JSON.parse decrypted
 
@@ -36,6 +36,7 @@ class Api::RecordsController < Api::BaseController
     # else
     #     "NOT VALID: Data tampered or private-public key mismatch!"
     # end
+    Rails.logger.warn "notify finished #{Time.now}, json: #{json};"
     Rails.logger.warn "notify finished #{Time.now}, decrypted: #{decrypted};"
     render json: {result: "ok"}, status: 201
   end
