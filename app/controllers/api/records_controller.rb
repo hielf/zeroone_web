@@ -28,7 +28,7 @@ class Api::RecordsController < Api::BaseController
     dec = RC4.new(key)
     decrypted = dec.decrypt(d) rescue api_error(status: 401)
 
-    JSON.parse decrypted
+    contents = JSON.parse decrypted
 
     # Verify the message & its signature
     # if public_key.verify(OpenSSL::Digest::SHA256.new, signature, message)
@@ -38,6 +38,19 @@ class Api::RecordsController < Api::BaseController
     # end
     Rails.logger.warn "notify finished #{Time.now}, json: #{json};"
     Rails.logger.warn "notify finished #{Time.now}, decrypted: #{decrypted};"
-    render json: {result: "ok"}, status: 201
+
+    @record = Record.new(user_id: contents["extraInfo"]["user_id"],
+                         product_id: contents["extraInfo"]["product_id"],
+                         sell_date: Time.now.strftime("%F"),
+                         qty: 1,
+                         total_prize: json["premium"],
+                         total_insured: json["sumInsured"],
+                         start_date: json["effectiveDate"],
+                         end_date: json["expiryDate"],
+                         policy_no: json["policyNo"])
+
+    if @record.save
+      render json: {result: "ok"}, status: 201
+    end
   end
 end
