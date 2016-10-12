@@ -22,13 +22,13 @@ class Product < ActiveRecord::Base
 
   def promoturl(user)
     payChannel           = "wxpay"
-    returnUrl            = "http://www.zhongan.com"
+    returnUrl            = ENV['return_url']
     json                 = ""
     json                 = "{\"extraInfo\":{\"user_id\":#{user.id}}}" if user # "{\"extraInfo\":{\"user_id\":#{user.id}}}"
     # json                 = {extraInfo:{user_id: user.id}}
     # json                 = JSON::generate(data)
 
-    key = "open20160501"
+    key = ENV['zhongan_key']
     enc = RC4.new(key)
     encrypted = enc.encrypt(json)
     bizContent = encrypted.unpack('H*')[0]

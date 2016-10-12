@@ -10,10 +10,10 @@ class Api::RecordsController < Api::BaseController
     params_hash.delete("serviceName")
     # json = params.sort.to_h.to_json
 
-    appKey = "9b86146ade141db92bf8618360481e0f"
+    appKey = ENV['zhongan_appKey']
 
     # Load PUBLIC key
-    private_key = OpenSSL::PKey::RSA.new(File.read('/Users/hielf/Desktop/private_key.pem'))
+    private_key = OpenSSL::PKey::RSA.new(File.read(ENV['zhongan_private_key']))
 
     # We have received the following data
     message = params_hash["bizContent"]
@@ -24,7 +24,7 @@ class Api::RecordsController < Api::BaseController
     s = json["bizContent"]
     d = [s].pack("H*")
 
-    key = "open20160501"
+    key = ENV['zhongan_key']
     dec = RC4.new(key)
     decrypted = dec.decrypt(d)
 
