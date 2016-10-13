@@ -58,7 +58,7 @@ class Api::RecordsController < Api::BaseController
     @record.commis = @product.ratio * json["premium"].to_f
     if @record.save
       @record.confirm
-      render json: {result: "ok"}, status: 201
+      render json: {"success"}, status: 201
     end
   end
 end
