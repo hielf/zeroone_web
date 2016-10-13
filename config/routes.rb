@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
     resources :records do
       post :notify, on: :collection
+      get :search, on: :collection
+      get :period_bonus, on: :collection
     end
   end
 

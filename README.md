@@ -45,3 +45,15 @@ curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d 
 保单列表
 id、产品名称、保费、保单号、销售日期、生效日期、失效日期、奖励、提成
 ```
+### 保单查询
+```
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/records/search?product_name=&policy_no=
+保单列表
+id、产品名称、保费、保额、保单号、生效日期、失效日期、销售日期、奖励、提成
+```
+### 区间收益情况
+```
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/records/period_bonus?start_date=2010-01-01&end_date=2020-01-01
+获取时间段内的收益统计汇总
+总销售数量、总销售额、总奖励、总提成
+```
