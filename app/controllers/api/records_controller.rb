@@ -53,7 +53,9 @@ class Api::RecordsController < Api::BaseController
                          start_date: json["effectiveDate"],
                          end_date: json["expiryDate"],
                          policy_no: json["policyNo"])
-
+    @product = Product.find(contents["extraInfo"]["product_id"].to_i)
+    @record.bonus = @product.bonus
+    @record.commis = @product.ratio * json["premium"].to_f
     if @record.save
       @record.confirm
       render json: {result: "ok"}, status: 201

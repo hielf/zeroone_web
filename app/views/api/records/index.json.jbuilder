@@ -7,5 +7,7 @@ json.records do
     json.sell_date        record.sell_date
     json.start_date       record.start_date
     json.end_date         record.end_date
+    json.bonus            record.bonus
+    json.commis           record.commis
   end
 end

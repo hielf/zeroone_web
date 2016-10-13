@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012192318) do
+ActiveRecord::Schema.define(version: 20161013050641) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20161012192318) do
     t.date     "start_date"
     t.date     "end_date"
     t.string   "policy_no",     limit: 255
+    t.decimal  "bonus",                     precision: 12, scale: 2, default: 0.0
+    t.decimal  "commis",                    precision: 12, scale: 2, default: 0.0
   end
 
   create_table "users", force: :cascade do |t|

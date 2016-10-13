@@ -43,5 +43,5 @@ curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d 
 ```
 curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/records
 保单列表
-id、产品名称、保费、保单号、销售日期、生效日期、失效日期
+id、产品名称、保费、保单号、销售日期、生效日期、失效日期、奖励、提成
 ```
