@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post :notify, on: :collection
       get :search, on: :collection
       get :period_bonus, on: :collection
+      get :subordinates_bonus, on: :collection
     end
   end
 

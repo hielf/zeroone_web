@@ -113,4 +113,8 @@ module ApplicationHelper
 
     decryt_str
   end
+
+  def new_bonus
+    100
+  end
 end

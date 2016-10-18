@@ -16,12 +16,19 @@ class User < ActiveRecord::Base
   belongs_to :superior, class_name: 'User'
   has_many :subordinates, class_name: 'User', foreign_key: "superior_id"
   has_many :records, dependent: :destroy
+  has_many :newbonus, dependent: :destroy
 
   before_create :generate_number
   after_create :generate_qrcode
 
   mount_uploader :avatar, AvatarUploader
   mount_uploader :qrcode, QrcodeUploader
+
+  state_machine :status, :initial => :'未激活' do
+    event :activate do
+      transition :'未激活' => :'激活'
+    end
+  end
 
   def User.send_code(cell, code)
 

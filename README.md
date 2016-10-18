@@ -57,3 +57,9 @@ curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d 
 获取时间段内的收益统计汇总
 总销售数量、总销售额、总奖励、总提成
 ```
+### 下线奖励明细
+```
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/records/subordinates_bonus
+当前用户下线明细及奖励
+id、开户日期、是否完成首次销售、奖励金额
+```

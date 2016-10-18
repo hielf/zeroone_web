@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013050641) do
+ActiveRecord::Schema.define(version: 20161018150103) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20161013050641) do
     t.string   "code",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "newbonus", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.decimal  "bonus",                    precision: 12, scale: 2, default: 0.0
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
+    t.integer  "subordinate_id", limit: 4
   end
 
   create_table "products", force: :cascade do |t|
@@ -81,6 +89,7 @@ ActiveRecord::Schema.define(version: 20161013050641) do
     t.string   "channel",           limit: 255,                          default: "001"
     t.string   "password_digest",   limit: 255
     t.string   "token",             limit: 255
+    t.string   "status",            limit: 255
   end
 
 end
