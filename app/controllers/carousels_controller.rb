@@ -4,6 +4,24 @@ class CarouselsController < ApplicationController
     @carousels = Carousel.all
   end
 
+  def destroy
+    Carousel.find(params[:id]).destroy
+    redirect_to carousels_url
+  end
+
+  def new
+    @carousel = Carousel.new
+  end
+
+  def create
+    @carousel = Carousel.new(carousel_params)
+    if @carousel.save
+      redirect_to carousels_url
+    else
+      render 'new'
+    end
+  end
+
   def edit
     @carousel = Carousel.find(params[:id])
   end

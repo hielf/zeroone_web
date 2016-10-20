@@ -1,3 +1,6 @@
-json.pic_1      @carousel.first.url ? "http://121.42.36.163" + @carousel.first.url : ""
-json.pic_2      @carousel.second.url ? "http://121.42.36.163" + @carousel.second.url : ""
-json.pic_3      @carousel.third.url ? "http://121.42.36.163" + @carousel.third.url : ""
+json.carousels do
+  json.array! @carousels do |carousel|
+    json.id       carousel.id
+    json.url      carousel.first.url ? "http://121.42.36.163" + @carousel.first.url : ""
+  end
+end

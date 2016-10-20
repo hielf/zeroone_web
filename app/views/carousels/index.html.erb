@@ -2,14 +2,13 @@
   <h3><%= t(:carousel_list) %></h3>
 </div>
 <div class="col-md-2">
+  <%= link_to t(:new_carousel), new_carousel_path, class: "btn btn-danger" if current_user.nil? %>
 </div>
 <div class="col-md-12">
   <table class="table">
     <thead>
       <tr>
         <th><%= Carousel.human_attribute_name(:first) %></th>
-        <th><%= Carousel.human_attribute_name(:second) %></th>
-        <th><%= Carousel.human_attribute_name(:third) %></th>
         <th colspan="2"><%= t(:operations) %></th>
       </tr>
     </thead>
