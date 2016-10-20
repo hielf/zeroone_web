@@ -1,4 +1,5 @@
 <tr>
-  <td><%= link_to "点击", carousel.first.url %></td>
+  <td><%= link_to "图片", carousel.first.url %></td>
+  <td><%= link_to "地址", carousel.second %></td>
   <td><%= link_to t(:destroy), carousel_path(carousel), method: :delete, data: {confirm: t(:are_you_sure)} %></td>
 </tr>

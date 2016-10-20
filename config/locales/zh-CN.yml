@@ -62,6 +62,7 @@ zh-CN:
       carousel:
         id: ID
         first: 图片
+        second: URL
   title: 链金士
   new_admin: 新建管理员
   admin_list: 管理员列表
