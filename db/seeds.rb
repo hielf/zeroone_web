@@ -20,6 +20,3 @@ admin = Admin.create!(
 #   bank_card: "Bank card",
 #   alipay: "alipay"
 #   )
-
-@carousel = Carousel.first
-Carousel.create(first: nil, second: nil, third: nil) unless @carousel
