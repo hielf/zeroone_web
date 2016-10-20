@@ -5,9 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+@admin = Admin.first
 admin = Admin.create!(
   name: "foobar",
-  password: "111111")
+  password: "111111") unless @admin
+
 # user = User.create(
 #   openid: Faker::Number.number(10).to_s,
 #   avatar: File.open(File.join(Rails.root, 'spec/fixtures/rails.png')),
@@ -18,3 +20,6 @@ admin = Admin.create!(
 #   bank_card: "Bank card",
 #   alipay: "alipay"
 #   )
+
+@carousel = Carousel.first
+Carousel.create(first: nil, second: nil, third: nil) unless @carousel

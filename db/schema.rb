@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161018150103) do
+ActiveRecord::Schema.define(version: 20161020045751) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
     t.string   "password_digest", limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "carousels", force: :cascade do |t|
+    t.string   "first",      limit: 255
+    t.string   "second",     limit: 255
+    t.string   "third",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "cell_codes", force: :cascade do |t|

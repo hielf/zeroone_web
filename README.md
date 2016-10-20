@@ -63,3 +63,8 @@ curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d 
 当前用户下线明细及奖励
 id、开户日期、是否完成首次销售、奖励金额
 ```
+### 首页轮播图
+```
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/carousels
+图1 图2 图3
+```

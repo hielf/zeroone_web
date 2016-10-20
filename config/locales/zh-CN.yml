@@ -5,6 +5,7 @@ zh-CN:
       user: 用户
       product: 产品
       record: 销售记录
+      carousel: 轮播图
     attributes:
       admin:
         id: ID
@@ -58,6 +59,11 @@ zh-CN:
         status: 状态
         created_at: 创建
         updated_at: 更新
+      carousel:
+        id: ID
+        first: 第一张
+        second: 第二张
+        third: 第三张
   title: 链金士
   new_admin: 新建管理员
   admin_list: 管理员列表
@@ -65,6 +71,7 @@ zh-CN:
   new_record: 添加记录
   product_list: 产品列表
   record_list: 销售记录列表
+  carousel_list: 首页轮播图
   are_you_sure: 请确认操作
   operations: 操作
   edit: 编辑

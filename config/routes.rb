@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get :period_bonus, on: :collection
       get :subordinates_bonus, on: :collection
     end
+    resources :carousels 
   end
 
   resources :users do
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
     get :confirm, on: :member
     get :deny, on: :member
   end
+
+  resources :carousels
 
   namespace :admin do
     get     'login'   => 'sessions#new'
