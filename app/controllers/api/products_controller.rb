@@ -1,7 +1,12 @@
 class Api::ProductsController < Api::BaseController
   # skip_before_action :authenticate_user!, only: [:index, :send_code]
   def index
-    @products = Product.where(status: "已审核")
+    if current_user.user_type == "normal"
+      @products = Product.where(status: "已审核")
+    else
+      superior = current_user.superior
+      @products = superior.products.where(status: "已审核") if superior
+    end
     @current_user = current_user
   end
 
