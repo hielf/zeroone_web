@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
   before_action :logged_in?
   def index
-    @products = Product.all
+    if current_user
+      @products = current_user.products
+    else
+      @products = Product.all
+    end
   end
 
   def new
@@ -53,6 +57,6 @@ class ProductsController < ApplicationController
   private
     def product_params
       params.require(:product).permit(:name, :prize, :image, :desc, :url, :status, :ratio,
-                              :bonus, :recommend)
+                              :bonus, :recommend, :user_id)
     end
 end

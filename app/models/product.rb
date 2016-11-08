@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   PRODUCT_STATUS = ["待审核", "已审核"]
   PRODUCT_ALL_STATUS = ["已审核", "作废"]
 
+  belongs_to :user
   has_many :records, dependent: :destroy
 
   mount_uploader :image, QrcodeUploader

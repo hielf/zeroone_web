@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020045751) do
+ActiveRecord::Schema.define(version: 20161108171120) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20161020045751) do
 
   create_table "carousels", force: :cascade do |t|
     t.string   "first",      limit: 255
-    t.string   "second",     limit: 255
+    t.string   "second",     limit: 2000
     t.string   "third",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "cell_codes", force: :cascade do |t|
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20161020045751) do
     t.boolean  "recommend"
     t.decimal  "ratio",                  precision: 12, scale: 2, default: 0.0
     t.decimal  "bonus",                  precision: 12, scale: 2, default: 0.0
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "records", force: :cascade do |t|
@@ -86,8 +87,8 @@ ActiveRecord::Schema.define(version: 20161020045751) do
     t.string   "id_card",           limit: 255
     t.string   "bank_card",         limit: 255
     t.string   "alipay",            limit: 255
-    t.datetime "created_at",                                                             null: false
-    t.datetime "updated_at",                                                             null: false
+    t.datetime "created_at",                                                                null: false
+    t.datetime "updated_at",                                                                null: false
     t.string   "qrcode",            limit: 255
     t.integer  "superior_id",       limit: 4
     t.decimal  "commission",                    precision: 12, scale: 2, default: 0.0
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 20161020045751) do
     t.string   "password_digest",   limit: 255
     t.string   "token",             limit: 255
     t.string   "status",            limit: 255
+    t.string   "user_type",         limit: 255,                          default: "normal"
   end
 
 end

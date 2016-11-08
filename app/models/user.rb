@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :subordinates, class_name: 'User', foreign_key: "superior_id"
   has_many :records, dependent: :destroy
   has_many :newbonus, dependent: :destroy
+  has_many :products, dependent: :destroy
 
   before_create :generate_number
   after_create :generate_qrcode

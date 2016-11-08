@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.user_type = "channel"
     if @user.save
       redirect_to root_url
     else
@@ -49,6 +50,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(
         :openid, :avatar, :name, :email,
         :cell, :number, :channel,
-        :password, :password_confirmation)
+        :password, :password_confirmation, :type)
     end
 end

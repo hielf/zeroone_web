@@ -17,6 +17,6 @@ class Admin::SessionsController < Admin::BaseController
 
   def destroy
     admin_logout if admin_logged_in?
-    redirect_to admin_root_url
+    redirect_to 'welcome#index'
   end
 end

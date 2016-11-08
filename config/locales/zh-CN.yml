@@ -19,7 +19,7 @@ zh-CN:
         openid: OpenID
         avatar: 头像
         number: 用户ID
-        name: 姓名
+        name: 名称
         cell: 手机
         email: 邮箱
         password: 密码
@@ -47,6 +47,7 @@ zh-CN:
         recommend: 推荐
         created_at: 创建
         updated_at: 更新
+        user_id: 机构
       record:
         id: ID
         user_id: 用户
