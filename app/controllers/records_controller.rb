@@ -4,7 +4,7 @@ class RecordsController < ApplicationController
     if current_user.nil?
       @records = Record.all
     else
-      @records = current_user.records
+      @records = Record.where('user_id in (?)', current_user.subordinates.map {|u| u.id})
     end
   end
 

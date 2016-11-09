@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to t(:title), root_url, class: "navbar-brand" %>
+      <%= link_to t(:title), '#', class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,6 +26,7 @@
         </ul>
       <% elsif user_logged_in? %>
         <ul class="nav navbar-nav">
+          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
           <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
           <li class="<%= 'active' if params[:controller] == 'records' %>"><%= link_to Record.model_name.human, records_path %></li>
         </ul>
@@ -34,7 +35,7 @@
         </ul>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to t('login'), user_login_path %></li>
+          <li><%= link_to t('admin_login'), admin_login_path %></li>
         </ul>
       <% end %>
     </div><!-- /.navbar-collapse -->

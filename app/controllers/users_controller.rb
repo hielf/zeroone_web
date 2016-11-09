@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :logged_in, only: [:new, :create]
 
   def index
-    @users = User.all
+    if current_user
+      @users = current_user.subordinates
+    else
+      @users = User.all
+    end
   end
 
   def new
@@ -12,8 +16,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.user_type = "channel"
+    @user.superior = current_user if current_user
     if @user.save
-      redirect_to root_url
+      redirect_to users_path
     else
       render 'new'
     end

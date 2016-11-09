@@ -80,6 +80,7 @@ zh-CN:
   back: 返回
   login: 登录
   logout: 退出
+  admin_login: 管理员登录
   please_log_in: 请登录
   reset_password: 重设密码
   invalid_email_or_password: 无效的用户名或密码
