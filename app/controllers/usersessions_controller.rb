@@ -6,7 +6,7 @@ class UsersessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:usersession][:email])
+    user = User.find_by(cell: params[:usersession][:cell])
     if user && user.authenticate(params[:usersession][:password])
       user_log_in user
       redirect_to records_url
