@@ -1,4 +1,4 @@
-class UsersessionsController < ApplicationController
+class UsersessionsController < BaseController
   skip_before_action :logged_in
 
   def new

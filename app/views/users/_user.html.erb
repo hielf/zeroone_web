@@ -3,5 +3,7 @@
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= user.cell %></td>
+  <td><%= check_user_type(user) %></td>
+  <td><%= user.superior.name if user.superior %></td>
   <td><%= link_to t(:destroy), user_path(user), method: :delete, data: {confirm: t(:are_you_sure)} %></td>
 </tr>

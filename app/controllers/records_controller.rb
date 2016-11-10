@@ -1,4 +1,4 @@
-class RecordsController < ApplicationController
+class RecordsController < BaseController
   before_action :logged_in?
   def index
     if current_user.nil?

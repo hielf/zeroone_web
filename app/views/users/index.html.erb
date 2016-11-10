@@ -2,7 +2,7 @@
   <h3><%= t(:user_list) %></h3>
 </div>
 <div class="col-md-2">
-  <%= link_to t(:new_user), new_user_path, class: "btn btn-danger" %>
+  <%= link_to (current_user ? t(:new_subuser) : t(:new_user)), new_user_path, class: "btn btn-danger"%>
 </div>
 <div class="col-md-12">
   <table class="table">
@@ -12,6 +12,8 @@
         <th><%= User.human_attribute_name(:name) %></th>
         <th><%= User.human_attribute_name(:email) %></th>
         <th><%= User.human_attribute_name(:cell) %></th>
+        <th><%= User.human_attribute_name(:user_type) %></th>
+        <th><%= User.human_attribute_name(:superior) %></th>
         <th colspan="1"><%= t(:operations) %></th>
       </tr>
     </thead>

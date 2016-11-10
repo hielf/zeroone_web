@@ -1,5 +1,5 @@
-class ProductsController < ApplicationController
-  before_action :logged_in?
+class ProductsController < BaseController
+  # before_action :logged_in?
   def index
     if current_user
       @products = current_user.products

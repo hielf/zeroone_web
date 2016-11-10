@@ -31,8 +31,10 @@ zh-CN:
         updated_at: 更新
         channel: 渠道
         superior_id: 上线
+        superior: 上级/所属机构
         total_commission: 佣金总额
         total_amount: 贷款总额
+        user_type: 类型
       product:
         id: ID
         name: 名称
@@ -85,7 +87,8 @@ zh-CN:
   reset_password: 重设密码
   invalid_email_or_password: 无效的用户名或密码
   user_list: 用户列表
-  new_user: 新用户注册
+  new_user: 注册机构用户
+  new_subuser: 添加机构理财师
   not_email: 不是有效的电子邮箱
   show: 显示
   confirm: 通过

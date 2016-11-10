@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < BaseController
   skip_before_action :logged_in, only: [:new, :create]
 
   def index

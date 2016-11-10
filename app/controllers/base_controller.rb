@@ -3,11 +3,11 @@ class BaseController < ApplicationController
 
   layout "admin"
 
-  # private
-  #   def logged_in
-  #     unless (admin_logged_in? || user_logged_in?)
-  #       flash[:danger] = t(:please_log_in)
-  #       redirect_to user_login_path
-  #     end
-  #   end
+  private
+    def logged_in
+      unless (admin_logged_in? || user_logged_in?)
+        flash[:danger] = t(:please_log_in)
+        redirect_to root_path
+      end
+    end
 end

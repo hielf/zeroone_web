@@ -1,4 +1,4 @@
-class CarouselsController < ApplicationController
+class CarouselsController < BaseController
   before_action :logged_in?
   def index
     @carousels = Carousel.all
