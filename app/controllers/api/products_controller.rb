@@ -16,7 +16,13 @@ class Api::ProductsController < Api::BaseController
   end
 
   def recommend_list
-    @products = Product.where(status: "已审核", recommend: true)
+    if current_user.user_type == "normal"
+      @products = Product.where(status: "已审核", user_id: nil, recommend: true)
+    else
+      superior = current_user.superior
+      @products = superior.products.where(status: "已审核", recommend: true) if superior
+    end
+
     @current_user = current_user
   end
 end
