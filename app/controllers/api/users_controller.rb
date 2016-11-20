@@ -17,6 +17,16 @@ class Api::UsersController < Api::BaseController
     end
   end
 
+  def update
+    return render json: {message: "参数错误"} if params[:user].blank?
+    user = User.update(user_info_params)
+    if user.save
+      render json: {cell: user.cell, token: user.token}, status: 201
+    else
+      return api_error(status: 422)
+    end
+  end
+
   def send_code
     # create a random code, not unique
     code = rand(1000..9999)
@@ -49,5 +59,9 @@ class Api::UsersController < Api::BaseController
   private
     def user_params
       params.require(:user).permit(:cell, :password, :openid, :number, :name)
+    end
+
+    def user_info_params
+      params.require(:user).permit(:name, :id_card, :bank_card)
     end
 end

@@ -5,6 +5,7 @@
     </div>
   <%= simple_form_for(@product) do |f| %>
   <div class="panel-body">
+    <%= f.input :product_type, collection: Product::PRODUCT_ALL_TYPES, :include_blank => false %>
     <%= f.input :name %>
     <%= f.input :image %>
     <%= f.input :prize %>

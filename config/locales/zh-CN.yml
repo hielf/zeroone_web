@@ -50,6 +50,7 @@ zh-CN:
         created_at: 创建
         updated_at: 更新
         user_id: 机构
+        product_type: 类型
       record:
         id: ID
         user_id: 用户

@@ -3,6 +3,7 @@ require 'rc4'
 class Product < ActiveRecord::Base
   PRODUCT_STATUS = ["待审核", "已审核"]
   PRODUCT_ALL_STATUS = ["已审核", "作废"]
+  PRODUCT_ALL_TYPES = ["医疗", "意外", "航旅"]
 
   belongs_to :user
   has_many :records, dependent: :destroy

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'signup' => 'users#create'
     post 'login' => 'sessions#create'
     post 'send_code' => 'users#send_code'
+    post 'user_modify' => 'users#update'
     resources :users do
       patch :reset_password, on: :collection
       get :center, on: :collection
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
       get :period_bonus, on: :collection
       get :subordinates_bonus, on: :collection
     end
-    resources :carousels 
+    resources :carousels
   end
 
   resources :users do

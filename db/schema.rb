@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108171120) do
+ActiveRecord::Schema.define(version: 20161120170120) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -44,18 +44,19 @@ ActiveRecord::Schema.define(version: 20161108171120) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.decimal  "prize",                  precision: 12, scale: 2, default: 0.0
-    t.string   "image",      limit: 255
-    t.string   "desc",       limit: 255
-    t.string   "url",        limit: 255
-    t.string   "status",     limit: 255
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
+    t.string   "name",         limit: 255
+    t.decimal  "prize",                    precision: 12, scale: 2, default: 0.0
+    t.string   "image",        limit: 255
+    t.string   "desc",         limit: 255
+    t.string   "url",          limit: 255
+    t.string   "status",       limit: 255
+    t.datetime "created_at",                                                      null: false
+    t.datetime "updated_at",                                                      null: false
     t.boolean  "recommend"
-    t.decimal  "ratio",                  precision: 12, scale: 2, default: 0.0
-    t.decimal  "bonus",                  precision: 12, scale: 2, default: 0.0
-    t.integer  "user_id",    limit: 4
+    t.decimal  "ratio",                    precision: 12, scale: 2, default: 0.0
+    t.decimal  "bonus",                    precision: 12, scale: 2, default: 0.0
+    t.integer  "user_id",      limit: 4
+    t.string   "product_type", limit: 255
   end
 
   create_table "records", force: :cascade do |t|

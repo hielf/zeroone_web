@@ -15,6 +15,12 @@ curl -X POST -d "cell=xxx&password=1111" http://localhost/api/login
 200: ok
 401: ng
 ```
+## update
+```
+curl -X POST -d "cell=xxxxxx" http://localhost/api/user_modify
+200: ok
+422: ng
+```
 ### reset password
 ```
 curl -X PATCH --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "old_password=xxx&password=xxx" http://localhost/api/users/reset_password

@@ -57,6 +57,6 @@ class ProductsController < BaseController
   private
     def product_params
       params.require(:product).permit(:name, :prize, :image, :desc, :url, :status, :ratio,
-                              :bonus, :recommend, :user_id)
+                              :bonus, :recommend, :user_id, :product_type)
     end
 end
