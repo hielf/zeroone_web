@@ -62,6 +62,6 @@ class Api::UsersController < Api::BaseController
     end
 
     def user_info_params
-      params.require(:user).permit(:name, :id_card, :bank_card)
+      params.require(:user).permit(:name, :id_card, :bank_card, :bank)
     end
 end

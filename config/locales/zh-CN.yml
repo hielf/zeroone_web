@@ -54,6 +54,7 @@ zh-CN:
       record:
         id: ID
         user_id: 用户
+        superior: 机构
         product_id: 产品
         sell_date: 销售日期
         customer_name: 客户姓名

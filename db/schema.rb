@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120171557) do
+ActiveRecord::Schema.define(version: 20161121172810) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20161120171557) do
     t.string   "token",             limit: 255
     t.string   "status",            limit: 255
     t.string   "user_type",         limit: 255,                          default: "normal"
+    t.string   "bank",              limit: 255
   end
 
 end
