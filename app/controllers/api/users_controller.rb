@@ -20,6 +20,7 @@ class Api::UsersController < Api::BaseController
   def update
     return render json: {message: "参数错误"} if params[:user].blank?
     # user = User.update(current_user, user_info_params)
+    Rails.logger.warn "user update #{params[:user]}"
     current_user.update(params[:user][:name]) if params[:user][:name]
     current_user.update(params[:user][:id_card]) if params[:user][:id_card]
     current_user.update(params[:user][:bank_card]) if params[:user][:bank_card]
@@ -73,7 +74,7 @@ class Api::UsersController < Api::BaseController
       params.require(:user).permit(:cell, :password, :openid, :number, :name)
     end
 
-    def user_info_params
-      params.require(:user).permit(:name, :id_card, :bank_card, :bank)
-    end
+    # def user_info_params
+    #   params.require(:user).permit(:name, :id_card, :bank_card, :bank)
+    # end
 end
