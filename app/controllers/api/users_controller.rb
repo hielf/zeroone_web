@@ -19,7 +19,7 @@ class Api::UsersController < Api::BaseController
 
   def update
     return render json: {message: "参数错误"} if params[:user].blank?
-    user = User.update(user_info_params)
+    user = User.update(current_user, user_info_params)
     if user.save
       render json: {cell: user.cell, token: user.token}, status: 201
     else
