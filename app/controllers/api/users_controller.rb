@@ -17,7 +17,7 @@ class Api::UsersController < Api::BaseController
     end
   end
 
-  def update
+  def modify
     return render json: {message: "参数错误"} if params[:user].blank?
     # user = User.update(current_user, user_info_params)
     Rails.logger.warn "user update #{params[:user]}"

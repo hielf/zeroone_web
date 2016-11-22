@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     post 'signup' => 'users#create'
     post 'login' => 'sessions#create'
     post 'send_code' => 'users#send_code'
-    post 'user_modify' => 'users#update'
+    post 'user_modify' => 'users#modify'
     resources :users do
       patch :reset_password, on: :collection
       get :center, on: :collection
