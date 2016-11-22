@@ -31,6 +31,14 @@ class Api::UsersController < Api::BaseController
     end
   end
 
+  def verify_bank
+    if (current_user.bank? && current_user.bank_card?)
+      render json: {verified: "true"}, status: 201
+    else
+      render json: {verified: "false"}, status: 201
+    end
+  end
+
   def send_code
     # create a random code, not unique
     code = rand(1000..9999)

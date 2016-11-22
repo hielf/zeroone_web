@@ -74,3 +74,8 @@ id、开户日期、是否完成首次销售、奖励金额
 curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/carousels
 图1 图2 图3
 ```
+### 银行卡验证
+```
+curl -X GET --header "Authorization: Token token=#{token}, cell=xxxxxxxxxxx" -d "" http://localhost/api/users/verify_bank
+verified: true # false
+```
