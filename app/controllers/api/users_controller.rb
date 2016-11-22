@@ -20,12 +20,12 @@ class Api::UsersController < Api::BaseController
   def modify
     return render json: {message: "参数错误"} if params[:user].blank?
     # Rails.logger.warn "#{current_user.cell} update #{params}"
-    if current_user.update(user_params)
+    current_user.update(user_info_params)
     # if user
     render json: {cell: current_user.cell, token: current_user.token}, status: 201
-    else
-      return api_error(status: 422)
-    end
+    # else
+    #   return api_error(status: 422)
+    # end
   end
 
   def verify_bank
@@ -70,7 +70,7 @@ class Api::UsersController < Api::BaseController
       params.require(:user).permit(:cell, :password, :openid, :number, :name, :id_card, :bank_card, :bank)
     end
 
-    # def user_info_params
-    #   params.require(:user).permit(:name, :id_card, :bank_card, :bank)
-    # end
+    def user_info_params
+      params.require(:user).permit(:name, :id_card, :bank_card, :bank)
+    end
 end
