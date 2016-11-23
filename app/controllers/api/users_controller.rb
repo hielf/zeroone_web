@@ -21,13 +21,13 @@ class Api::UsersController < Api::BaseController
     # return render json: {message: "参数错误"} if params[:user].blank?
     Rails.logger.warn "#{current_user.cell} update #{params}"
     # current_user.update(user_info_params)
-    # current_user.name = params["user"]["name"] if params["user"]["name"]
-    # current_user.id_card = params["user"]["id_card"] if params["user"]["id_card"]
+    current_user.name = params["user"]["name"] if params["user"]["name"]
+    current_user.id_card = params["user"]["id_card"] if params["user"]["id_card"]
     current_user.bank_card = params["user"]["bank_card"].to_s if params["user"]["bank_card"]
     current_user.bank = params["user"]["bank"].to_s if params["user"]["bank"]
-    Rails.logger.warn "#{current_user.cell} updated #{params["user"]["bank"]}"
+    # Rails.logger.warn "#{current_user.cell} updated #{params["user"]["bank"]}"
     if current_user.save!
-      Rails.logger.warn "#{current_user.cell} updated ok"
+      # Rails.logger.warn "#{current_user.cell} updated ok"
       render json: {cell: current_user.cell, token: current_user.token}, status: 201
     else
       return api_error(status: 422)
