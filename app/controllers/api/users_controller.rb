@@ -1,5 +1,5 @@
 class Api::UsersController < Api::BaseController
-  skip_before_action :authenticate_user!, only: [:create, :send_code, :verify_bank]
+  skip_before_action :authenticate_user!, only: [:create, :send_code]
   def create
     return render json: {message: "参数错误"} if params[:user].blank?
 
