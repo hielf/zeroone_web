@@ -27,6 +27,7 @@ class Api::UsersController < Api::BaseController
     current_user.bank = params["user"]["bank"] if params["user"]["bank"]
 
     if current_user.save
+      Rails.logger.warn "#{current_user.cell} updated"
       render json: {cell: current_user.cell, token: current_user.token}, status: 201
     else
       return api_error(status: 422)
