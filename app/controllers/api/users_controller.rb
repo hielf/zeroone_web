@@ -23,8 +23,8 @@ class Api::UsersController < Api::BaseController
     # current_user.update(user_info_params)
     # current_user.name = params["user"]["name"] if params["user"]["name"]
     # current_user.id_card = params["user"]["id_card"] if params["user"]["id_card"]
-    current_user.bank_card = params["user"]["bank_card"] if params["user"]["bank_card"]
-    current_user.bank = params["user"]["bank"] if params["user"]["bank"]
+    current_user.bank_card = params["user"]["bank_card"].to_s if params["user"]["bank_card"]
+    current_user.bank = params["user"]["bank"].to_s if params["user"]["bank"]
     Rails.logger.warn "#{current_user.cell} updated #{params["user"]["bank"]}"
     if current_user.save
       Rails.logger.warn "#{current_user.cell} updated ok"
