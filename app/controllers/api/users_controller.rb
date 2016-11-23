@@ -30,7 +30,7 @@ class Api::UsersController < Api::BaseController
 
   def verify_bank
     if (current_user.bank? && current_user.bank_card?)
-      render json: {verified: "true"}, status: 201
+      render json: {verified: "true", bank: current_user.bank, bank_card: current_user.bank_card}, status: 201
     else
       render json: {verified: "false"}, status: 201
     end
