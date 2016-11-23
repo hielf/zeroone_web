@@ -18,14 +18,19 @@ class Api::UsersController < Api::BaseController
   end
 
   def modify
-    return render json: {message: "参数错误"} if params[:user].blank?
+    # return render json: {message: "参数错误"} if params[:user].blank?
     # Rails.logger.warn "#{current_user.cell} update #{params}"
-    current_user.update(user_info_params)
-    # if user
+    # current_user.update(user_info_params)
+    current_user.name = params[:user][:name] if params[:user][:name]
+    current_user.name = params[:user][:id_card] if params[:user][:id_card]
+    current_user.name = params[:user][:bank_card] if params[:user][:bank_card]
+    current_user.name = params[:user][:bank] if params[:user][:bank]
+
+    if current_user.save
     render json: {cell: current_user.cell, token: current_user.token}, status: 201
-    # else
-    #   return api_error(status: 422)
-    # end
+    else
+      return api_error(status: 422)
+    end
   end
 
   def verify_bank
